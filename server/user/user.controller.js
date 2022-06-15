@@ -65,7 +65,7 @@ async function register(req, res, next) {
     birthday,
     password,
     verificationCode,
-    activated: false
+    activated: true
   });
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(password, salt);
@@ -99,7 +99,7 @@ async function register(req, res, next) {
         }
       });
       transporter.sendMail(mailOptions, res => console.log(res))
-      usr.activated = true
+
       res.json(usr.toAuthJSON())
     })
     .catch(e => {
