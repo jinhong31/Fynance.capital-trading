@@ -37,10 +37,12 @@ if (!module.parent) {
 }
 
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
-  app.use(express.static('client/build'));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
-  });
+  app.use(express.static(`${__dirname}/build`))
+
+  app.use('/*', (req, res) => {
+    // res.sendFile(path.join(__dirname.substr(0, __dirname.length - 12), 'build', 'index.html'))
+    res.sendFile(`${__dirname}/build/index.html`)
+  })
 }
 
 
