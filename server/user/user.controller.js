@@ -84,8 +84,8 @@ async function register(req, res, next) {
         port: 465,
         secure: true,
         auth: {
-          user: 'geniusdev1108@gmail.com',
-          pass: 'QWER!@#$qwer1234'
+          user: process.env.email,
+          pass: process.env.pass
         },
         tls: {
           rejectUnauthorized: false,
