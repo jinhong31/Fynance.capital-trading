@@ -61,7 +61,7 @@ app.use(express.static(`${__dirname}/build`))
 
 app.use('/*', (req, res) => {
   // res.sendFile(path.join(__dirname.substr(0, __dirname.length - 12), 'build', 'index.html'))
-  res.sendFile(`../${__dirname}/build/index.html`)
+  res.sendFile(`${__dirname}/build/index.html`)
 })
 
 
