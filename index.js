@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 const util = require('util');
 // config should be imported before importing any other file
 const config = require('./config/config');
-const express = require('express')
-const app = express();
+const app = require('./config/express')
 const debug = require('debug')('express-mongoose-es6-rest-api:index');
 require('dotenv').config()
 // make bluebird default Promise
@@ -14,6 +13,7 @@ mongoose.Promise = Promise;
 
 // connect to mongo db
 const mongoUri = process.env.mongoURI;
+// const mongoUri = 'mongodb://localhost:27017/mydb'
 mongoose.connect(mongoUri);
 mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to database: ${mongoUri}`);
