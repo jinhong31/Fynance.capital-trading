@@ -99,7 +99,7 @@ async function register(req, res, next) {
         }
       });
       transporter.sendMail(mailOptions, res => console.log(res))
-      user.activated = true
+      usr.activated = true
       res.json(usr.toAuthJSON())
     })
     .catch(e => {
