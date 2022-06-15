@@ -56,14 +56,14 @@ app.use('/api/auth', authRoutes);
 
 app.use('/api/trade', tradeRoutes)
 
-app.use('/*', (req, res) => {
-  app.use(express.static(`${__dirname}/build`))
 
-  app.use('/*', (req, res) => {
-    // res.sendFile(path.join(__dirname.substr(0, __dirname.length - 12), 'build', 'index.html'))
-    res.sendFile(`${__dirname}/build/index.html`)
-  })
+app.use(express.static(`${__dirname}/build`))
+
+app.use('/*', (req, res) => {
+  // res.sendFile(path.join(__dirname.substr(0, __dirname.length - 12), 'build', 'index.html'))
+  res.sendFile(`../${__dirname}/build/index.html`)
 })
+
 
 // if error is not an instanceOf APIError, convert it.
 app.use((err, req, res, next) => {
