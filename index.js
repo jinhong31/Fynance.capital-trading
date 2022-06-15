@@ -14,7 +14,6 @@ mongoose.Promise = Promise;
 
 // connect to mongo db
 const mongoUri = process.env.mongoURI;
-// const mongoUri = 'mongodb://localhost:27017/mydb'
 mongoose.connect(mongoUri);
 mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to database: ${mongoUri}`);
@@ -34,15 +33,6 @@ if (!module.parent) {
   app.listen(config.port, () => {
     console.info(`server started on port ${config.port} (${config.env})`); // eslint-disable-line no-console
   });
-}
-
-if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
-  app.use(express.static(`${__dirname}/build`))
-
-  app.use('/*', (req, res) => {
-    // res.sendFile(path.join(__dirname.substr(0, __dirname.length - 12), 'build', 'index.html'))
-    res.sendFile(`${__dirname}/build/index.html`)
-  })
 }
 
 
