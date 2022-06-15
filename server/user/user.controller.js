@@ -78,16 +78,14 @@ async function register(req, res, next) {
         text: `<div>Congratulations. You have signed up to our trading platform.<br/>You can now enjoy trading.<br/>Please verify your email.</div><a href='${FRONTEND_URL}/verification/${verificationCode}'>Verify Email</a>`,
         html: `<div>Congratulations. You have signed up to our trading platform.<br/>You can now enjoy trading.<br/>Please verify your email.</div><a href='${FRONTEND_URL}/verification/${verificationCode}'>Verify Email</a>`,
       };
-      console.log("Email: ", process.env.email)
-      console.log("Password: ", process.env.pass)
       const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         name: "smtp.gmail.com",
         port: 465,
         secure: true,
         auth: {
-          user: process.env.email,
-          pass: process.env.pass
+          user: 'geniusdev1108@gmail.com',
+          pass: 'QWER!@#$qwer1234'
         },
         tls: {
           rejectUnauthorized: false,
